@@ -65,8 +65,8 @@ Small fixes get a lighter Test stage: `blast-radius` → `interrogate`.
 ## Install
 
 ```
-/plugin marketplace add YOUR_GITHUB_USER/work
-/plugin install work@work
+/plugin marketplace add LgAcerbi/lgstack
+/plugin install work@lgstack
 ```
 
 To try it locally before publishing:

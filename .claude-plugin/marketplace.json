@@ -1,0 +1,19 @@
+{
+  "name": "lgstack",
+  "owner": {
+    "name": "LgAcerbi",
+    "url": "https://github.com/LgAcerbi"
+  },
+  "metadata": {
+    "description": "LgAcerbi's Claude Code plugins for rigorous, AI-assisted development."
+  },
+  "plugins": [
+    {
+      "name": "work",
+      "source": "./work",
+      "description": "A staged, approval-gated workflow for TypeScript/web development: kickoff, plan, design, build test-first, then vet and attack the diff.",
+      "category": "engineering",
+      "keywords": ["workflow", "tdd", "typescript", "code-review"]
+    }
+  ]
+}

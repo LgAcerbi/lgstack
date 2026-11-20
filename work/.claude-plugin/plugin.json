@@ -3,9 +3,10 @@
   "version": "0.4.0",
   "description": "A staged, approval-gated workflow for TypeScript/web development: kick off new projects, understand existing code, settle its shape, build it test-first and clean, then vet and attack the diff.",
   "author": {
-    "name": "YOUR_NAME"
+    "name": "LgAcerbi",
+    "url": "https://github.com/LgAcerbi"
   },
-  "repository": "https://github.com/YOUR_GITHUB_USER/work",
+  "repository": "https://github.com/LgAcerbi/lgstack",
   "license": "MIT",
   "keywords": ["workflow", "tdd", "typescript", "design", "code-quality"]
 }
