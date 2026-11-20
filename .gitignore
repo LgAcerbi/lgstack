@@ -1,0 +1,7 @@
+# Test project for the work plugin (has its own git repo)
+users-api/
+users-api.ANSWERS.md
+
+node_modules/
+.DS_Store
+Thumbs.db
