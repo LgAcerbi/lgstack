@@ -17,6 +17,8 @@ Spawn one read-only subagent (`subagent_type: "Explore"`, or `general-purpose` i
 
 A fresh subagent keeps the exploration noise out of the main conversation.
 
+**Convention mode.** When the user (or the router) is about to add or change code in an existing project, also ask the subagent to answer every question in the convention checklist of the `project-structure` skill (read [its SKILL.md](../project-structure/SKILL.md)), each with one real `path:line` example. Present the answers as a **Conventions** section. If the project's `CLAUDE.md` has no **Conventions** section, offer to add it there. Write it only with the user's approval.
+
 ## 2. Present
 
 Present the subagent's explanation. Light edits for clarity or to connect it to the conversation are fine. Do not rewrite its substance. If a flow has three or more moving parts, add a small mermaid diagram.

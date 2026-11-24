@@ -34,6 +34,7 @@ A **seam** is the public boundary you test at, the interface where you observe b
 - **Isolate state.** Every test starts from a known state it sets up itself (reset in-memory stores, seed fixtures in `beforeEach`). A test must pass alone, in any order, and after any other test. Never depend on seed data another test might mutate.
 - **Fix the cause, then the type that let it happen.** For a bug, find the root cause per [fix-root-causes](../principles/fix-root-causes.md). If a loose type allowed it (an `any`, a missing brand, a coercion at a boundary), tighten that type too, or list it as open work with the reason. Parse inputs strictly per [boundary-discipline](../principles/boundary-discipline.md).
 - **Probe the edges of the fix.** Before calling green, try the inputs next to the bug: malformed, empty, out-of-range and alternate formats of the same value. Add a test for any that misbehave.
+- **Put files where the project expects them.** New source and test files follow the `project-structure` skill: the project's conventions first, the defaults only for gaps. Never move existing files during a build.
 - **Edit with the Edit tool.** Make code changes with Edit or Write, not `sed` or other shell rewrites, so every change is exact and reviewable.
 - **One slice at a time.** One seam, one test, one minimal implementation per cycle.
 - **Types count.** Run the type checker each cycle along with the tests. Apply `typescript-best-practices` to the production code.

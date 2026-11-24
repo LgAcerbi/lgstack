@@ -27,6 +27,21 @@ Copy this into the new project's `CLAUDE.md` and fill it in. Delete any section 
 - `src/<...>`: <what lives here>
 - `docs/design/`: approved design sketches from `/work:architect`
 
+## Conventions
+
+Answers to the `project-structure` checklist. Every new file follows these.
+
+- Grouping: <by layer: routes/, controllers/, services/, repositories/, models/, schemas/>
+- Layers: <routes → controllers → services → repositories → models; services call other services, never other repositories>
+- Style: <classes with constructor injection; controller handlers are arrow-function properties>
+- Wiring: <by hand in src/container.ts; no DI library>
+- Validation: <zod schemas in schemas/, parsed in controllers>
+- Errors: <services return typed results; controllers map them to status codes; one error middleware for the unexpected>
+- Types: <domain types and brands in models/; API shapes in schemas/>
+- Naming: <feature.layer.ts, e.g. user.service.ts>
+- Tests: <next to the file, feature.layer.test.ts; each test builds a fresh app with createApp>
+- Config: <env parsed once in config/; process.env nowhere else>
+
 ## Rules
 
 - Use the `work` plugin flow: design (`/work:architect`) → build (`/work:tdd`) → clean (`/work:deslop`, `/work:no-comments`). Stop for approval between stages.

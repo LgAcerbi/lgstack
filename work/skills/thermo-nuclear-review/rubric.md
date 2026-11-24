@@ -12,7 +12,7 @@
 3. **Clean the design, don't just accept working code.** If behavior can stay the same while the structure gets meaningfully simpler, push for it. Prefer removing moving pieces over spreading the same complexity around.
 4. **Direct, boring code over magic.** Flag brittle or magical behavior, generic mechanisms hiding simple data shapes, and thin wrappers or pass-through helpers that add indirection without clarity.
 5. **Types and boundaries.** Question needless optionality, `any`, `unknown` past the boundary, casts, and loosely shaped objects where an explicit typed model would make the code simpler. Silent fallbacks that paper over an unclear invariant mean the boundary should be explicit.
-6. **The right layer, and reuse.** Flag feature logic leaking into shared code, implementation details leaking through APIs, and bespoke helpers duplicating an existing one.
+6. **The right layer, and reuse.** Flag feature logic leaking into shared code, implementation details leaking through APIs, and bespoke helpers duplicating an existing one. Judge placement against the project's conventions (its `CLAUDE.md` **Conventions** section, or the patterns in its code), not against personal defaults. A new file that breaks the project's existing layering is a finding. An existing project that differs from the `project-structure` defaults is not.
 7. **Orchestration and atomicity.** Flag independent work serialized for no reason, and related updates that can leave state half-applied.
 
 ## Questions for every meaningful change

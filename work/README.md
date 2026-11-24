@@ -38,7 +38,12 @@ A staged, approval-gated workflow for AI-assisted TypeScript/web development in 
 
 Test skills only report. You pick which findings to fix, and each fix goes back through `tdd`.
 
-`/work:principles` lists the rules every skill follows, such as stage gates, subtract before you add, boundary discipline and prove it works.
+**Used across stages:**
+
+| Skill | What it does |
+| --- | --- |
+| `/work:project-structure` | Where code lives. Scaffolds your preferred layout in new projects (REST API: layers, classes with constructor injection, hand-wired `container.ts`). In existing projects it finds and follows the project's own conventions, and never restructures unless you ask. |
+| `/work:principles` | The rules every skill follows, such as stage gates, subtract before you add, boundary discipline and prove it works. |
 
 ### Typical flow
 

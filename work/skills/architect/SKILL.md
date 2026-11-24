@@ -13,6 +13,8 @@ For a large or contested design, run the `arena` skill instead of sketching alon
 
 Map every system the change touches: the modules, the data that flows through them, who owns each piece of state today, and the existing types and helpers you could reuse. Use `how` if the area is unfamiliar.
 
+Place every new file, type and class according to the `project-structure` skill: the project's recorded or observed conventions first, the defaults only for gaps. Both sketches must follow those conventions. Sketches differ in design, not in folder layout.
+
 ## 2. Sketch two shapes
 
 Write two genuinely different sketches. Each one contains:

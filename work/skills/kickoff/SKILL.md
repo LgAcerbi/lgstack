@@ -45,8 +45,9 @@ Prefer fewer tools. Every tool must earn its place in the first slice (see [subt
 1. Use the framework's official scaffolder where one exists (`pnpm create vite`, `create-next-app` and so on), non-interactively with flags. Never pipe remote scripts into a shell.
 2. Make TypeScript strict in `tsconfig.json`: `strict`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, `noImplicitOverride`, `noFallthroughCasesInSwitch`. Relax a flag only if the framework demands it, and record why.
 3. Add the chosen test runner, schema library and lint/format setup. Delete scaffolder demo code and assets the first slice does not use.
-4. Add `package.json` scripts with stable names: `dev`, `build`, `test`, `typecheck`, `lint`, and `check`, which runs `typecheck`, `lint` and `test` together.
-5. Run `git init` if the folder is not a repository, with a `.gitignore` that matches the stack. Do not commit unless the user asks.
+4. Create the folder layout with the `project-structure` skill in Scaffold mode. For a REST API, use its [rest-api.md](../project-structure/rest-api.md) layout: layers, classes with constructor injection, `container.ts`, and `createApp` separate from `server.ts`. For other project types, ask the user for the layout as part of step 2.
+5. Add `package.json` scripts with stable names: `dev`, `build`, `test`, `typecheck`, `lint`, and `check`, which runs `typecheck`, `lint` and `test` together.
+6. Run `git init` if the folder is not a repository, with a `.gitignore` that matches the stack. Do not commit unless the user asks.
 
 ## 4. CLAUDE.md
 

@@ -30,4 +30,6 @@ The `work` skill (`/work <request>`) picks the route through these stages automa
 | 3. Build: write it test-first, then clean | `tdd`, `typescript-best-practices`, `deslop`, `no-comments` | A tested, clean diff |
 | 4. Test: vet the change and attack the diff | `blast-radius`, `benchmark-checklist`, `interrogate`, `thermo-nuclear-review` | Proven risks and findings for the user to accept or reject. Fixes go back to Build. |
 
+Used across stages: `project-structure` (where code lives: scaffold in new projects, follow conventions in existing ones) and `typescript-best-practices`.
+
 Not covered yet: PR and deploy.

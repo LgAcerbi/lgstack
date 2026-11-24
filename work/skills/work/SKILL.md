@@ -32,10 +32,13 @@ Classify the folder as **empty** (nothing, or only docs and dotfiles), **existin
 | Existing | Small, well-specified change or bug fix | `tdd` directly → Test (light). For a bug, start from a failing test that reproduces it. |
 | Existing | Clean up existing code | `deslop`, then `no-comments` → Test (light) |
 | Existing | Review or test changes that already exist | Test (full) on the current diff |
+| Existing | Restructure or migrate the layout (explicit request only) | `project-structure` Migrate mode: `grill` → `architect` → `tdd` → Test (full), one feature at a time |
 | Monorepo | New app or package | `kickoff` scoped to a new folder in the workspace, following the repo's existing tooling, then `architect` → `tdd` → Test (full) |
 | Monorepo | Anything else | Same as existing, scoped to the relevant package |
 
 Judge "small" honestly. A change that adds a new type, module, endpoint or data shape is a feature, not a small change.
+
+**Conventions in existing projects.** For a new feature or larger change in an existing project, check whether the project's `CLAUDE.md` has a **Conventions** section. If it doesn't, the route always starts with `how` in convention mode (the checklist in `project-structure`), even when the area is familiar. Never restructure existing code unless the user explicitly asked for it; that request is its own route (Migrate mode in `project-structure`).
 
 **Test stage (Stage 4)** runs after Build, on the diff:
 
