@@ -20,7 +20,7 @@ These are the rules behind every `work` skill. Each one has its own file. Read t
 
 ## The stages
 
-The `work` skill (`/work <request>`) picks the route through these stages automatically. Each skill can also be called on its own.
+The `work` skill (`/work <request>`) picks the route through these stages automatically. Each skill can also be called on its own, and each stage has a skill that runs all of it: `plan`, `design`, `build`, `test`. Any code change after a finished route goes back through `build` and `test`.
 
 | Stage | Skills | Ends with |
 | --- | --- | --- |

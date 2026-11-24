@@ -38,6 +38,17 @@ A staged, approval-gated workflow for AI-assisted TypeScript/web development in 
 
 Test skills only report. You pick which findings to fix, and each fix goes back through `tdd`.
 
+**Run a whole stage:**
+
+| Skill | Runs |
+| --- | --- |
+| `/work:plan <area>` | `how`, `why` or `teach`, whichever the question needs |
+| `/work:design <change>` | `grill` (if requirements are fuzzy) → `architect` (or `arena`) |
+| `/work:build <change>` | `tdd` → `deslop` → `no-comments`, then hands off to Test |
+| `/work:test [light\|full]` | `blast-radius` → `interrogate` (→ `thermo-nuclear-review` for full, `benchmark-checklist` if performance is at stake), one gate at the end |
+
+Changes after a finished route go through `build` and `test` again. A turn that changed code always ends at a Test gate.
+
 **Used across stages:**
 
 | Skill | What it does |

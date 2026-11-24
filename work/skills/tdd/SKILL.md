@@ -43,6 +43,6 @@ A **seam** is the public boundary you test at, the interface where you observe b
 
 ## Finish
 
-When every agreed seam is covered and green, run the full test suite, type check and lint, and report the real output per [prove-it-works](../principles/prove-it-works.md). Then run `deslop` and `no-comments` on the diff, and finish with [stage-gates](../principles/stage-gates.md). The next stage is Test (`blast-radius`, then `interrogate`).
+When every agreed seam is covered and green, run the full test suite, type check and lint, and report the real output per [prove-it-works](../principles/prove-it-works.md). Then run `deslop` and `no-comments` on the diff, and finish with [stage-gates](../principles/stage-gates.md). The next stage is `test`, at the level that skill picks. This holds for follow-up changes too: any code change after a finished route ends at a Test gate (see stage-gates).
 
 When `tdd` runs to fix findings from the Test stage, turn each accepted finding into a failing test first, using the finding's repro command as the starting point.

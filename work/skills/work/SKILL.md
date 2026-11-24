@@ -40,13 +40,9 @@ Judge "small" honestly. A change that adds a new type, module, endpoint or data 
 
 **Conventions in existing projects.** For a new feature or larger change in an existing project, check whether the project's `CLAUDE.md` has a **Conventions** section. If it doesn't, the route always starts with `how` in convention mode (the checklist in `project-structure`), even when the area is familiar. Never restructure existing code unless the user explicitly asked for it; that request is its own route (Migrate mode in `project-structure`).
 
-**Test stage (Stage 4)** runs after Build, on the diff:
+**Test stage (Stage 4)** runs after Build, on the diff. The `test` skill defines it: **light** is `blast-radius` → `interrogate`; **full** adds `thermo-nuclear-review`; `benchmark-checklist` joins only when performance is at stake. Run it as one step, `work:test light` or `work:test full`.
 
-- **Test (light):** `blast-radius` → `interrogate`
-- **Test (full):** `blast-radius` → `interrogate` → `thermo-nuclear-review`
-- Add `benchmark-checklist` to either one only when the change claims or risks a performance difference.
-
-Test skills report and never fix. At the Test gate, the user picks which findings to fix. Each accepted finding goes back to `tdd` as a failing test first, then cleanup, then rerun only the Test skills that found something. Repeat until the user is satisfied.
+**Stage skills.** Each stage has a skill that runs the whole stage: `plan`, `design`, `build`, `test`. Use them in the route when a stage runs in full; name the individual skills when only some of a stage runs.
 
 ## 3. Resolve conflicts once
 
@@ -90,3 +86,4 @@ Run each skill in the route with the Skill tool (`work:<skill>`), passing it the
 - Run `deslop` and `no-comments` at the end of every build, as `tdd` says.
 - If a stage shows the route was wrong (the "small fix" needs a design, the area turns out to be unfamiliar), stop, say so, and propose the corrected route.
 - After the last stage, say the route is complete and what is not covered yet: PR and deploy.
+- **The route does not end the workflow.** If the user then asks for more changes, follow "Changes after a stage or route is done" in [stage-gates](../principles/stage-gates.md): `build` on the change, then `test` again, with a short announce such as `Follow-up: build → test light ── gate`. A change that touched code always ends at a Test gate.
