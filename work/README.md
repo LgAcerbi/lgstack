@@ -92,6 +92,12 @@ Test skills only report. You pick which findings to fix, and each fix goes back 
 
 Changes after a finished route go through `build` and `test` again. A turn that changed code always ends at a Test gate.
 
+**Review someone else's change:**
+
+| Skill | What it does |
+| --- | --- |
+| `/work:review <MR/PR>` | Fetches the MR (GitLab, `glab`) or PR (GitHub, `gh`) into a separate worktree, checks what it claims against what it does, runs the Test stage in report-only mode against the project's own conventions, and drafts comments (blocker, should-fix, nit, question) with a verdict. Posts only what you approve. Never changes the author's code. |
+
 **Used across stages:**
 
 | Skill | What it does |
@@ -114,7 +120,7 @@ claude --plugin-dir ./work
 
 ## Not covered yet
 
-PRs and deploy.
+Opening your own PRs, and deploy. (Reviewing other people's MRs and PRs is `/work:review`.)
 
 ## Credits
 

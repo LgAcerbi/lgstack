@@ -31,7 +31,8 @@ Classify the folder as **empty** (nothing, or only docs and dotfiles), **existin
 | Existing | New feature or larger change | `how` (only if the area is unfamiliar) → `grill` (only if requirements are fuzzy) → `architect` (`arena` if large or contested) → `tdd` → Test (full) |
 | Existing | Small, well-specified change or bug fix | `tdd` directly → Test (light). For a bug, start from a failing test that reproduces it. |
 | Existing | Clean up existing code | `deslop`, then `no-comments` → Test (light) |
-| Existing | Review or test changes that already exist | Test (full) on the current diff |
+| Existing | Review or test your own changes that already exist | Test (full) on the current diff |
+| Existing | Review someone else's MR or PR (a number, URL or their branch) | `review`. It ends at a gate with draft comments; nothing is posted without approval. |
 | Existing | Restructure or migrate the layout (explicit request only) | `project-structure` Migrate mode: `grill` → `architect` → `tdd` → Test (full), one feature at a time |
 | Monorepo | New app or package | `kickoff` scoped to a new folder in the workspace, following the repo's existing tooling, then `architect` → `tdd` → Test (full) |
 | Monorepo | Anything else | Same as existing, scoped to the relevant package |
@@ -85,5 +86,5 @@ Run each skill in the route with the Skill tool (`work:<skill>`), passing it the
 - Follow [stage-gates](../principles/stage-gates.md) between stages: summarize, list what is open, name the next skill on the route, and stop. When the user approves, continue with that next skill. You do not need to call `/work` again.
 - Run `deslop` and `no-comments` at the end of every build, as `tdd` says.
 - If a stage shows the route was wrong (the "small fix" needs a design, the area turns out to be unfamiliar), stop, say so, and propose the corrected route.
-- After the last stage, say the route is complete and what is not covered yet: PR and deploy.
+- After the last stage, say the route is complete and what is not covered yet: opening a PR, and deploy.
 - **The route does not end the workflow.** If the user then asks for more changes, follow "Changes after a stage or route is done" in [stage-gates](../principles/stage-gates.md): `build` on the change, then `test` again, with a short announce such as `Follow-up: build → test light ── gate`. A change that touched code always ends at a Test gate.
