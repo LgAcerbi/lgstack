@@ -16,6 +16,49 @@ A staged, approval-gated workflow for AI-assisted TypeScript/web development in 
 
 `/work` inspects the folder, decides between a new project and an existing one, announces the route it picked (for example `architect → tdd`), and runs it one stage at a time, stopping for your approval between stages. If the bare `/work` is taken by another command on your machine, use `/work:work`.
 
+## The pipeline
+
+```mermaid
+flowchart TD
+    R["/work + your request<br/>inspects the folder and picks a route"]
+
+    subgraph K["0 · Kickoff · /work:kickoff"]
+        k1[kickoff]
+    end
+    subgraph P["1 · Plan · /work:plan"]
+        p1[how]
+        p2[why]
+        p3[teach]
+    end
+    subgraph D["2 · Design · /work:design"]
+        d1["grill<br/>(if requirements are fuzzy)"] --> d2["architect<br/>(or arena)"]
+    end
+    subgraph B["3 · Build · /work:build"]
+        b1[tdd] --> b2[deslop] --> b3[no-comments]
+    end
+    subgraph T["4 · Test · /work:test"]
+        t1[blast-radius] --> t2[interrogate] --> t3["thermo-nuclear-review<br/>(full only)"]
+        t4["benchmark-checklist<br/>(only if performance is at stake)"]
+    end
+
+    R -->|new project| K
+    R -->|feature or question| P
+    R -.->|small fix or bug| B
+    K -->|you approve| D
+    P -->|you approve| D
+    D -->|you approve| B
+    B -->|you approve| T
+    T -->|you approve| E([done])
+    T -.- L["↺ Fixes you pick and any follow-up change<br/>go back to Build, then Test again"]
+```
+
+- Solid arrows are stage gates: the agent stops, summarizes, and waits for you. Dotted arrows are shortcuts.
+- Each box title is the skill that runs that whole stage, for example `/work:test full`. Every skill inside a box can also run on its own.
+- `/work` skips what a request doesn't need and announces the route first, for example `tdd → deslop → no-comments ── gate ── test light ── gate`. A question stops at Plan.
+- **Test light** is `blast-radius` → `interrogate`. **Test full** adds `thermo-nuclear-review`. Features and cleanups get full, small fixes get light.
+- A change that touched code always ends at a Test gate, including follow-ups after the route is done.
+- Used in every stage: `project-structure` (where code lives), `typescript-best-practices` (every `.ts`/`.tsx` edit) and `principles`.
+
 ## Stages
 
 | Stage | Skill | What it does |
@@ -55,28 +98,6 @@ Changes after a finished route go through `build` and `test` again. A turn that 
 | --- | --- |
 | `/work:project-structure` | Where code lives. Scaffolds your preferred layout in new projects (REST API: layers, classes with constructor injection, hand-wired `container.ts`). In existing projects it finds and follows the project's own conventions, and never restructures unless you ask. |
 | `/work:principles` | The rules every skill follows, such as stage gates, subtract before you add, boundary discipline and prove it works. |
-
-### Typical flow
-
-New project:
-
-```
-/work:kickoff  → product + stack                ── you approve
-               → scaffold, CLAUDE.md, skeleton test ── you approve
-/work:architect → first feature, then /work:tdd as below
-```
-
-Existing project:
-
-```
-/work:how      → understand the area            ── you approve
-/work:grill    → settle requirements
-/work:architect → approved sketch in docs/design ── you approve
-/work:tdd      → red-green, then deslop + no-comments ── you approve
-/work:blast-radius → /work:interrogate → /work:thermo-nuclear-review ── you pick fixes
-```
-
-Small fixes get a lighter Test stage: `blast-radius` → `interrogate`.
 
 ## Install
 
